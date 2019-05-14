@@ -1,0 +1,2 @@
+创建带有模板的APP
+sencha -sdk c:\tools\sencha\ext-6.6.0 generate app -s c:\tools\sencha\ext-6\templates\admin-dashboard Z ./
