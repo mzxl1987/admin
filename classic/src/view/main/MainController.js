@@ -27,7 +27,7 @@ Ext.define('Admin.view.main.MainController', {
             store = navigationList.getStore(),
             node = store.findNode('routeId', hashTag) ||
                    store.findNode('viewType', hashTag),
-            view = (node && node.get('viewType')) || 'page404',
+            view = me.isWriteURL(hash) ? hash : (node && node.get('viewType')) || 'page404',
             lastView = me.lastView,
             existingItem = mainCard.child('component[routeId=' + hashTag + ']'),
             newView;
@@ -148,23 +148,23 @@ Ext.define('Admin.view.main.MainController', {
     onRouteChange: function (id) {
         var me = this;
 
-        if(this.isWriteURL(id)){
+        // if(this.isWriteURL(id)){
             this.setCurrentView(id);
-        }else{
-            this.requestGET('auth/permission',{
-                token : me.session.getItem('token'),
-            },function(response, opts) {
-                console.log(response);
-                var obj = Ext.decode(response.responseText);
-                if(obj.success){
-                    // App.view.base.Base.headerImg = obj.userInfo.avatarUrl;
-                }
-                me.setCurrentView(obj.success ? id : 'login');
-                },function(response, opts) {
-                console.log(response);
-                me.setCurrentView('login');
-            });
-        }
+        // }else{
+        //     this.requestGET('auth/permission',{
+        //         token : me.session.getItem('token'),
+        //     },function(response, opts) {
+        //         console.log(response);
+        //         var obj = Ext.decode(response.responseText);
+        //         if(obj.success){
+        //             // App.view.base.Base.headerImg = obj.userInfo.avatarUrl;
+        //         }
+        //         me.setCurrentView(obj.success ? id : 'login');
+        //         },function(response, opts) {
+        //         console.log(response);
+        //         me.setCurrentView('login');
+        //     });
+        // }
         
     },
 
