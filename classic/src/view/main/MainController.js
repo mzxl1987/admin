@@ -1,5 +1,5 @@
 Ext.define('Admin.view.main.MainController', {
-    extend: 'Ext.app.ViewController',
+    extend: 'Admin.view.base.BaseController',
     alias: 'controller.main',
 
     listen : {
@@ -145,8 +145,27 @@ Ext.define('Admin.view.main.MainController', {
         }
     },
 
-    onRouteChange:function(id){
-        this.setCurrentView(id);
+    onRouteChange: function (id) {
+        var me = this;
+
+        if(this.isWriteURL(id)){
+            this.setCurrentView(id);
+        }else{
+            this.requestGET('auth/permission',{
+                token : me.session.getItem('token'),
+            },function(response, opts) {
+                console.log(response);
+                var obj = Ext.decode(response.responseText);
+                if(obj.success){
+                    // App.view.base.Base.headerImg = obj.userInfo.avatarUrl;
+                }
+                me.setCurrentView(obj.success ? id : 'login');
+                },function(response, opts) {
+                console.log(response);
+                me.setCurrentView('login');
+            });
+        }
+        
     },
 
     onSearchRouteChange: function () {

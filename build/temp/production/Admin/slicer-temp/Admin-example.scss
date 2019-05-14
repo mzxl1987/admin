@@ -1,5 +1,5 @@
 $app-name:  dynamic( 'Admin' );
-$image-search-path: 'c:/SenchaWorkspace/admin/build/development/Admin/classic/resources';
+$image-search-path: 'c:/SenchaWorkspace/admin/build/production/Admin/classic/resources';
 $theme-name:  dynamic( 'theme-triton' );
 $include-admin-application: dynamic(true);;
 $include-admin-data-pie: dynamic(true);;
@@ -811,7 +811,6 @@ $include-ext-grid-rowcontext: dynamic(true);;
 $include-ext-grid-roweditor: dynamic(true);;
 $include-ext-grid-roweditorbuttons: dynamic(true);;
 $include-ext-grid-rownumberer: dynamic(true);;
-$include-ext-grid-scroller: dynamic(true);;
 $include-ext-grid-templatecolumn: dynamic(true);;
 $include-ext-grid-view: dynamic(true);;
 $include-ext-grid-viewdropzone: dynamic(true);;
@@ -1337,7 +1336,7 @@ $include-ext-view-view: dynamic(true);;
 $include-ext-window-messagebox: dynamic(true);;
 $include-ext-window-toast: dynamic(true);;
 $include-ext-window-window: dynamic(true);;
-$output-paths: ("path": "../resources");
+
 
 /* ======================== ETC ======================== */
 

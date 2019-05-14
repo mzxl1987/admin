@@ -39,7 +39,7 @@ Ext.define('Admin.view.authentication.Login', {
                 {
                     xtype: 'textfield',
                     cls: 'auth-textbox',
-                    name: 'userid',
+                    name: 'username',
                     bind: '{userid}',
                     height: 55,
                     hideLabel: true,

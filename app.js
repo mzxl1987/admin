@@ -2,6 +2,9 @@
  * This file is responsible for launching the application. Application logic should be
  * placed in the Admin.Application class.
  */
+
+Ext.data.Connection.cors = true;
+
 Ext.application({
     name: 'Admin',
 
